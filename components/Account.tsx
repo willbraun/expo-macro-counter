@@ -80,13 +80,28 @@ export default function Account({ session }: { session: Session }) {
   return (
     <View>
       <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Input label="Email" value={session?.user?.email} disabled />
+        <Input 
+          label="Email" 
+          value={session?.user?.email} 
+          disabled
+          autoCompleteType={'email'} 
+        />
       </View>
       <View style={styles.verticallySpaced}>
-        <Input label="Username" value={username || ''} onChangeText={(text) => setUsername(text)} />
+        <Input 
+          label="Username" 
+          value={username || ''} 
+          onChangeText={(text) => setUsername(text)}
+          autoCompleteType={'username'} 
+        />
       </View>
       <View style={styles.verticallySpaced}>
-        <Input label="Website" value={website || ''} onChangeText={(text) => setWebsite(text)} />
+        <Input 
+          label="Website" 
+          value={website || ''} 
+          onChangeText={(text) => setWebsite(text)}
+          autoCompleteType={false}
+          />
       </View>
 
       <View style={[styles.verticallySpaced, styles.mt20]}>
