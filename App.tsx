@@ -1,27 +1,24 @@
-import 'react-native-url-polyfill/auto'
-import { useState, useEffect } from 'react'
-import { supabase } from './lib/supabase'
-import Login from './components/Login'
-import Account from './components/Account'
-import { View } from 'react-native'
-import { Session } from '@supabase/supabase-js'
+import React from "react";
+import { NativeRouter, Link, Route } from 'react-router-native';
+import ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Today from "./src/routes/Today";
+import ErrorPage from "./src/components/ErrorPage";
 
-export default function App() {
-  const [session, setSession] = useState<Session | null>(null)
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Today />,
+    errorElement: <ErrorPage />,
+  },
+]);
 
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-  }, [])
-
-  return (
-    <View>
-      {session && session.user ? <Account key={session.user.id} session={session} /> : <Login />}
-    </View>
-  )
-}
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
