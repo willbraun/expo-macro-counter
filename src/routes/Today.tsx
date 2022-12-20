@@ -9,7 +9,9 @@ export default function Today() {
     
     return (
         <View style={styles.container}>
-            <Text variant='displayMedium'>Today</Text>
+            <Text variant='displayMedium' style={styles.header}>
+				Today
+			</Text>
             <Link to='/badlink' underlayColor='transparent'>
                 <Button mode='elevated'>
                     <Text>This button has a bad link</Text>

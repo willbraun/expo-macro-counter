@@ -1,4 +1,4 @@
-import { NativeRouter, Link, Route, Routes } from "react-router-native";
+import { NativeRouter, Route, Routes } from "react-router-native";
 import 'react-native-url-polyfill/auto';
 import Today from "../routes/Today";
 import ErrorPage from "../routes/ErrorPage";
@@ -18,12 +18,14 @@ import ChangeEmail from "../routes/ChangeEmail";
 import ChangePassword from "../routes/ChangePassword";
 
 export default function ReactRouter() {
-    return (
+    const auth = false;
+	
+	return (
         <NativeRouter>
 			<Routes>
 				<Route path='/'>
-					<Route index element={<Today />} />
-					<Route path='/login' element={<Login />} />
+					<Route index element={auth ? <Today /> : <Login />} />
+
 					<Route path='/create-account' element={<CreateAccount />} />
 					<Route path='/log-meal' element={<LogMeal />} />
 					<Route path='/edit-meal' element={<EditMeal />} />

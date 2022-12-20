@@ -7,6 +7,12 @@ const baseStyles = {
 		width: '100%',
         height: '100%',
 	},
+	header: {
+		marginBottom: 10
+	},
+	textInput: {
+		marginBottom: 20
+	}
 };
 
 export default function createStyles(overrides = {}) {
