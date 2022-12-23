@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Alert, View } from "react-native";
 import { Text } from "react-native-paper";
-import createStyles from "./../styles/base.js";
+import createStyles from "../styles/base.js";
 import { supabase } from "../../lib/supabase";
 
 export default function CreateAccount() {

@@ -2,27 +2,28 @@ import { useState } from 'react';
 import { NativeRouter, Route, Routes } from "react-router-native";
 import 'react-native-url-polyfill/auto';
 import { supabase } from '../../lib/supabase';
-import Today from "../routes/Today";
-import ErrorPage from "../routes/ErrorPage";
-import Login from "../routes/Login";
-import CreateAccount from "../routes/CreateAccount";
-import LogMeal from '../routes/LogMeal';
-import EditMeal from '../routes/EditMeal';
-import AddFood from "../routes/AddFood";
-import AddRecipe from "../routes/AddRecipe";
-import SelectFood from "../routes/SelectFood";
-import SelectRecipe from "../routes/SelectRecipe";
-import History from "../routes/History";
-import HistoryDetail from "../routes/HistoryDetail";
-import MyRecipes from "../routes/MyRecipes";
-import EditRecipe from "../routes/EditRecipe";
-import ChangeEmail from "../routes/ChangeEmail";
-import ChangePassword from "../routes/ChangePassword";
-import MyAccount from "../routes/MyAccount";
-import ScanBarcode from "../routes/ScanBarcode";
+import Today from "./Today";
+import ErrorPage from "./ErrorPage";
+import Login from "./Login";
+import CreateAccount from "./CreateAccount";
+import LogMeal from './LogMeal';
+import EditMeal from './EditMeal';
+import AddFood from "./AddFood";
+import AddRecipe from "./AddRecipe";
+import SelectFood from "./SelectFood";
+import SelectRecipe from "./SelectRecipe";
+import History from "./History";
+import HistoryDetail from "./HistoryDetail";
+import MyRecipes from "./MyRecipes";
+import EditRecipe from "./EditRecipe";
+import ChangeEmail from "./ChangeEmail";
+import ChangePassword from "./ChangePassword";
+import MyAccount from "./MyAccount";
+import ScanBarcode from "./ScanBarcode";
 
 export default function ReactRouter() {
-	// supabase.auth.signOut();
+	supabase.auth.signOut();
+	
 	
 	// Add whole session to store instead of just auth
 	const [auth, setAuth] = useState(false);
@@ -30,6 +31,7 @@ export default function ReactRouter() {
 	// Add this to actions I think, then call here. Action stores whole session, not just auth
 	(async function checkAuth() {
 		const result = await supabase.auth.getSession();
+		console.log(result)
 		const auth = !!result.data.session;
 		setAuth(auth);
 	})();

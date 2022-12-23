@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Text } from 'react-native-paper';
-import createStyles from "./../styles/base.js";
+import createStyles from "../styles/base.js";
 
 export default function LogMeal() {
     const styles = createStyles();

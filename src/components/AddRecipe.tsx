@@ -1,13 +1,13 @@
 import { View } from 'react-native';
 import { Text } from 'react-native-paper';
-import createStyles from "./../styles/base.js";
+import createStyles from "../styles/base.js";
 
-export default function MyRecipes() {
+export default function AddRecipe() {
     const styles = createStyles();
 
     return (
         <View style={styles.container}>
-            <Text variant='displayMedium'>My Recipes</Text>
+            <Text variant='displayMedium'>Add Recipe</Text>
         </View>
     )
 }

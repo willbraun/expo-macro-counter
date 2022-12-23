@@ -3,7 +3,8 @@ import { Alert, View } from 'react-native';
 import { useNavigate } from 'react-router-native';
 import { Button, Text, TextInput } from 'react-native-paper';
 import { supabase } from '../../lib/supabase';
-import createStyles from './../styles/base.js';
+import createStyles from '../styles/base.js';
+import { setSessionState } from '../redux/slices/sessionSlice';
 
 export default function Login() {
 	const [email, setEmail] = useState('');
@@ -27,6 +28,7 @@ export default function Login() {
 		else {
 			// call checkAuth function from redux
 			console.log('to do - call checkAuth redux action');
+			setSessionState(session.data)
 		}
 		setLoading(false);
 	}

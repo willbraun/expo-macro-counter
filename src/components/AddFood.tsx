@@ -1,13 +1,13 @@
 import { View } from 'react-native';
 import { Text } from 'react-native-paper';
-import createStyles from "./../styles/base.js";
+import createStyles from "../styles/base.js";
 
-export default function HistoryDetail() {
+export default function AddFood() {
     const styles = createStyles();
 
     return (
         <View style={styles.container}>
-            <Text variant='displayMedium'>History Detail</Text>
+            <Text variant='displayMedium'>Add Food</Text>
         </View>
     )
 }
