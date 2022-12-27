@@ -26,17 +26,19 @@ export default function ReactRouter() {
 	
 	
 	// Add whole session to store instead of just auth
-	const [auth, setAuth] = useState(false);
+	// const [auth, setAuth] = useState(false);
 
 	// Add this to actions I think, then call here. Action stores whole session, not just auth
-	(async function checkAuth() {
-		const result = await supabase.auth.getSession();
-		console.log(result)
-		const auth = !!result.data.session;
-		setAuth(auth);
-	})();
+	// (async function checkAuth() {
+	// 	const result = await supabase.auth.getSession();
+	// 	console.log(result)
+	// 	const auth = !!result.data.session;
+	// 	setAuth(auth);
+	// })();
 	
 	// pull in session from redux, do !!session to get auth
+
+	const auth = false
 
 	return (
         <NativeRouter>

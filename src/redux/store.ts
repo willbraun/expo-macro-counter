@@ -1,7 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './slices/counter'
+import { applyMiddleware } from '@reduxjs/toolkit'
+import { composeWithDevTools } from '@redux-devtools/extension'
 
-const store = configureStore({
-  reducer: {}
+// const composeEnhancers = composeWithDevTools({})
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
