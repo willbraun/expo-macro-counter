@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 import { supabase } from "../../../lib/supabase";
 import { Session } from "@supabase/supabase-js";
@@ -26,7 +26,9 @@ export const sessionSlice = createSlice({
 			state: nullableSession,
 			action: PayloadAction<SessionResponseSuccess>
 		) => {
+			console.log(current(state))
 			state = action.payload.session;
+			console.log(current(state))
 		},
 	},
 });

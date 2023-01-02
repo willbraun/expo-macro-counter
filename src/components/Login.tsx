@@ -7,6 +7,7 @@ import createStyles from '../styles/base.js';
 import { setSessionState } from '../redux/slices/sessionSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment } from './../redux/slices/counter'; // importing actions used by dispatch
+import { RootState } from '../redux/store';
 
 export default function Login() {
 	const [email, setEmail] = useState('');
@@ -17,7 +18,8 @@ export default function Login() {
 	const styles = createStyles();
 
 	// gets the redux state, counter reducer within that state, and count variable within that reducer
-	const count = useSelector(state => state.counter.count)
+	// state is defined just within this anonymous function
+	const count = useSelector((state: RootState) => state.counter.count)
 
 	// dispatch allows us to call any action from any reducer that we want
 	const dispatch = useDispatch();

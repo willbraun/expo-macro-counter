@@ -1,9 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './slices/counter'
-import { applyMiddleware } from '@reduxjs/toolkit'
-import { composeWithDevTools } from '@redux-devtools/extension'
-
-// const composeEnhancers = composeWithDevTools({})
 
 export const store = configureStore({
   reducer: {

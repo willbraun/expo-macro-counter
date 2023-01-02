@@ -1,8 +1,10 @@
 // redux toolkit allows you to use slices, which are a way to define state, actions, and reducers all in the same place.
 // regular redux requires you to define each of these separately
 
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, current } from '@reduxjs/toolkit'
 
+// initial state of this slice. my state on components is also usually an object with multiple keys
+// create slice for each component?
 const initialState = {
   count: 0,
 }
@@ -17,7 +19,9 @@ export const counterSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
+      console.log(current(state))
       state.count += 1
+      console.log(current(state))
     },
     decrement: (state) => {
       state.count -= 1
